@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portofolio – Adhitya Arip Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #555555;
+      --accent: #111111;
+      --card: #f9f9f9;
+      --accent-soft: #efefef;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      border-bottom: 1px solid #eaeaea;
+      z-index: 10
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 18px
+    }
+
+    .nav .nav-right {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .icon-link {
+      display: inline-grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 18px;
+      transition: all .14s;
+      position: relative;
+    }
+
+    .icon-link:hover {
+      background: var(--accent-soft);
+      color: #a10505;
+      transform: translateY(-2px);
+    }
+
+    .icon-link::after {
+      content: attr(title);
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      bottom: -36px;
+      background: #111;
+      color: #fff;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .12s, transform .12s;
+      z-index: 30;
+    }
+
+    .icon-link:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media(max-width:720px) {
+      .icon-link {
+        width: 38px;
+        height: 38px;
+        font-size: 16px
+      }
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 32px;
+      align-items: center;
+      padding: 48px 0
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 120%;
+      object-fit: cover;
+      object-position: center;
+      object-position: 50% 50%;
+    }
+
+    @media(max-width:768px) {
+      .hero {
+        grid-template-columns: 1fr
+      }
+
+      .hero img {
+        margin-bottom: 20px
+      }
+    }
+
+    .title {
+      font-size: 36px;
+      margin: 12px 0
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 60ch
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid #e5e5e5;
+      background: var(--bg);
+      color: var(--text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .btn.primary {
+      background: var(--text);
+      color: var(--bg)
+    }
+
+    .btn:hover {
+      opacity: .85
+    }
+
+    section {
+      padding: 40px 0
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 0 0 14px
+    }
+
+    .card {
+      border: 1px solid #eaeaea;
+      border-radius: var(--radius);
+      padding: 20px;
+      background: var(--card)
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: 1fr 1fr
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: 1fr 1fr 1fr
+    }
+
+    @media(max-width:768px) {
+
+      .grid.cols-2,
+      .grid.cols-3 {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .skills-card {
+      padding: 18px
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    @media(max-width:780px) {
+      .skills-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .skill-card {
+      background: #fff;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+    }
+
+    .skill-top {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .skill-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .skill-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      color: var(--text);
+    }
+
+    .skill-name {
+      font-weight: 600
+    }
+
+    .skill-desc {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .skill-footer {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .skill-tag {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #fafafa;
+      border-radius: 999px;
+      border: 1px solid #f0f0f0;
+      color: var(--muted)
+    }
+
+    .proj img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd
+    }
+
+    .pendidikan-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .sekolah {
+      width: 60px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+
+    footer {
+      padding: 24px 0;
+      border-top: 1px solid #eaeaea;
+      color: var(--muted);
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">Adhitya Arip Ramadhan</div>
+
+      <div class="nav-right">
+        <a class="icon-link" href="#tentang" title="Tentang" aria-label="Tentang"><i class="fa-solid fa-user"></i></a>
+        <a class="icon-link" href="#skill" title="Skill" aria-label="Skill"><i class="fa-solid fa-code"></i></a>
+        <a class="icon-link" href="#pengalaman" title="Pengalaman" aria-label="Pengalaman"><i
+            class="fa-solid fa-briefcase"></i></a>
+        <a class="icon-link" href="#pendidikan" title="Pendidikan" aria-label="Pendidikan"><i
+            class="fa-solid fa-graduation-cap"></i></a>
+        <a class="icon-link" href="#proyek" title="Proyek" aria-label="Proyek"><i
+            class="fa-solid fa-folder-open"></i></a>
+        <a class="icon-link" href="#kontak" title="Kontak" aria-label="Kontak"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="tentang">
+      <div class="profile-img">
+        <img src="Profile.jpg" alt="Foto Profil">
+      </div>
+      <div>
+        <h1 class="title">Halo,
+          saya Adhitya Arip Ramadhan</h1>
+        <p class="subtitle">Berpassion di Pemrograman, Desain Grafis, & Media Sosial, dengan kemampuan Public
+          Speaking yang efektif dan komunikatif untuk menyampaikan ide dan membangun relasi.</p>
+        <div class="cta">
+          <a class="btn primary" href="#proyek">Lihat Proyek</a>
+          <a class="btn" href="#kontak">Hubungi Saya</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skill">
+      <h2>Skill Utama</h2>
+
+      <div class="card skills-card">
+        <div class="skills-grid">
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
+                <div>
+                  <div class="skill-name">HTML</div>
+                  <div class="skill-desc">Struktur & semantic markup, accessibility</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-footer">
+              <span class="skill-tag">Responsive</span>
+              <span class="skill-tag">SEO Friendly</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
+                <div>
+                  <div class="skill-name">CSS</div>
+                  <div class="skill-desc">Layout responsif, Flexbox, Grid, animasi ringan</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-footer">
+              <span class="skill-tag">Flexbox</span>
+              <span class="skill-tag">Grid</span>
+              <span class="skill-tag">Responsive</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <div class="skill-icon"><i class="fa-brands fa-js"></i></div>
+                <div>
+                  <div class="skill-name">JavaScript</div>
+                  <div class="skill-desc">DOM, event handling, fetch API, vanilla JS</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-footer">
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">AJAX / Fetch</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
+                <div>
+                  <div class="skill-name">PHP & Laravel</div>
+                  <div class="skill-desc">Backend dasar, CRUD, Blade templating</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-footer">
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">REST API</span>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <div class="skill-top">
+              <div class="skill-meta">
+                <div class="skill-icon"><i class="fa-solid fa-pen-nib"></i></div>
+                <div>
+                  <div class="skill-name">Desain Grafis</div>
+                  <div class="skill-desc">Editing gambar, ilustrasi, desain poster & UI sederhana</div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-footer">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Photoshop</span>
+              <span class="skill-tag">Canva</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px">
+          <h3>Soft Skill</h3>
+          <div class="skills-grid">
+
+            <div class="skill-card">
+              <div class="skill-top">
+                <div class="skill-meta">
+                  <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
+                  <div>
+                    <div class="skill-name">Critical Thinking</div>
+                    <div class="skill-desc">Berpikir matang sebelum mengambil keputusan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="skill-card">
+              <div class="skill-top">
+                <div class="skill-meta">
+                  <div class="skill-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                  <div>
+                    <div class="skill-name">Problem Solving</div>
+                    <div class="skill-desc">Menganalisis & menemukan solusi efektif</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-top">
+                <div class="skill-meta">
+                  <div class="skill-icon"><i class="fa-solid fa-people-group"></i></div>
+                  <div>
+                    <div class="skill-name">Teamwork</div>
+                    <div class="skill-desc">Bekerja sama dalam tim dengan baik</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-top">
+                <div class="skill-meta">
+                  <div class="skill-icon"><i class="fa-solid fa-microphone"></i></div>
+                  <div>
+                    <div class="skill-name">Public Speaking</div>
+                    <div class="skill-desc">Menyampaikan ide dengan percaya diri</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-top">
+                <div class="skill-meta">
+                  <div class="skill-icon"><i class="fa-solid fa-shuffle"></i></div>
+                  <div>
+                    <div class="skill-name">Adaptability</div>
+                    <div class="skill-desc">Mudah beradaptasi dengan perubahan</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pengalaman">
+      <h2>Pengalaman</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Praktek Kerja Lapangan – BBPMP Jawa Barat</h3>
+          <p>Berkontribusi dalam pengembangan website reservasi ruangan untuk mempermudah proses pemesanan fasilitas
+            secara online. Terlibat dalam perancangan antarmuka, penulisan kode program, dan integrasi fitur pemesanan,
+            serta memastikan tampilan dan fungsionalitas website berjalan optimal sesuai kebutuhan pengguna.</p>
+        </div>
+        <div class="card">
+          <h3>Tugas Akhir SMK – Aplikasi Reservasi Hotel</h3>
+          <p>Membangun aplikasi reservasi hotel berbasis web dengan fitur input form, filter kamar, detail hotel, dan
+            ringkasan hasil input.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pendidikan">
+      <h2>Pendidikan</h2>
+      <div class="card pendidikan-card">
+        <img src="Mahardhika.png" alt="Logo SMK Mahardhika Batujajar" class="sekolah">
+        <p>
+          <strong>SMK Mahardhika Batujajar</strong> – Rekayasa Perangkat Lunak<br />
+          2022 – 2025
+        </p>
+      </div>
+    </section>
+
+    <section id="proyek">
+      <h2>Proyek</h2>
+      <div class="grid cols-2">
+        <article class="card proj">
+          <img src="Vellura Reservasi.png"
+            alt="Aplikasi Reservasi Hotel">
+          <h3>Aplikasi Reservasi Hotel</h3>
+          <p>Sistem Aplikasi reservasi hotel berbasis website untuk melakukan pemesanan kamar hotel dengan tampilan clean dan ringkasan pemesanan
+            otomatis.</p>
+        </article>
+        <article class="card proj">
+          <img src="BBPMP Reservasi.png"
+            alt="Website Reservasi Ruangan">
+          <h3>Website Reservasi Ruangan</h3>
+          <p>Sistem aplikasi reservasi ruangan berbasis website untuk Instansi Balai Besar Penjaminan Mutu Pendidikan Provinsi Jawa Barat (BBPMP).</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <h2>Kontak</h2>
+      <div class="card">
+        <p>Email: <a href="mailto:adhitya.aripaamadhan@gmail.com">adhitya.aripamadhan@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/Valencaf-666" target="_blank">adhityaaripamadhan</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">Adhitya Arip Ramadhan</a></p>
+        <p>WhatsApp: <a href="https://wa.me/6283847266554" target="_blank">+62 838-4726-6554</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="y"></span> • Adhitya Arip Ramadhan • Portofolio</p>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
