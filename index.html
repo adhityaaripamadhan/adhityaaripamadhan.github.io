@@ -36,7 +36,7 @@
       font-family: Inter, system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6
+      line-height: 1.6;
     }
 
     a {
@@ -331,6 +331,23 @@
       border-radius: 8px;
     }
 
+    .wrapp-demo {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 6px
+    }
+
+    .btn-demo {
+      font-size: 14px;
+      padding: 6px 15px;
+      background: #fafafa;
+      border-radius: 9px;
+      border: 2px solid #f0f0f0;
+    }
+    .btn-demo:hover{
+      background: #e6e7e9;
+    }
 
     footer {
       padding: 24px 0;
@@ -483,7 +500,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="skill-card">
               <div class="skill-top">
                 <div class="skill-meta">
@@ -568,17 +585,27 @@
       <h2>Proyek</h2>
       <div class="grid cols-2">
         <article class="card proj">
-          <img src="Vellura Reservasi.png"
-            alt="Aplikasi Reservasi Hotel">
+          <img src="Vellura Reservasi.png" alt="Aplikasi Reservasi Hotel">
           <h3>Aplikasi Reservasi Hotel</h3>
-          <p>Sistem Aplikasi reservasi hotel berbasis website untuk melakukan pemesanan kamar hotel dengan tampilan clean dan ringkasan pemesanan
+          <p>Sistem Aplikasi reservasi hotel berbasis website untuk melakukan pemesanan kamar hotel dengan tampilan
+            clean dan ringkasan pemesanan
             otomatis.</p>
+          <div class="wrapp-demo">
+            <a href="https://drive.google.com/file/d/1PsdMtMkY6XsIWgWvylv5oVf6h2tnhHYl/view?usp=sharing">
+              <span class="btn-demo">🔗 Demo</span>
+            </a>
+          </div>
         </article>
         <article class="card proj">
-          <img src="BBPMP Reservasi.png"
-            alt="Website Reservasi Ruangan">
+          <img src="BBPMP Reservasi.png" alt="Website Reservasi Ruangan">
           <h3>Website Reservasi Ruangan</h3>
-          <p>Sistem aplikasi reservasi ruangan berbasis website untuk Instansi Balai Besar Penjaminan Mutu Pendidikan Provinsi Jawa Barat (BBPMP).</p>
+          <p>Sistem aplikasi reservasi ruangan berbasis website untuk Instansi Balai Besar Penjaminan Mutu Pendidikan
+            Provinsi Jawa Barat (BBPMP).</p>
+          <div class="wrapp-demo">
+            <a href="https://drive.google.com/file/d/1KjEz_NnVypeZSQkEBVt5uZHiYeGHRvFa/view?usp=drive_link">
+              <span class="btn-demo">🔗 Demo</span>
+            </a>
+          </div>
         </article>
       </div>
     </section>
